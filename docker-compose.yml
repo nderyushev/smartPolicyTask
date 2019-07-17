@@ -1,0 +1,21 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - vol_db:/var/lib/postgresql/data
+  django:
+    build: .
+    environment:
+      CELERY_BROKER_URL: redis://redis:6379
+      CELERY_RESULT_BACKEND: redis://redis:6379
+    ports:
+      - 8000:8000
+  redis:
+    image: "redis:alpine"
+    volumes:
+      - vol_redis:/data
+
+volumes:
+  vol_db:
+  vol_redis:
