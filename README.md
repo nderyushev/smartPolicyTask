@@ -75,3 +75,7 @@ CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = True
 
 CELERY_TASK_ALWAYS_EAGER = True
+
+
+gunzip < ~/Downloads/partner.qa.2019-07-24T11_14_57.sql.gz | psql -U nderyushev partnerstore
+
